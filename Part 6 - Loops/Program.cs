@@ -10,11 +10,11 @@ namespace Part_6___Loops
     {
         static void Main(string[] args)
         {
-            bool done = false, parse = false;
+            bool done = false, bankDone = false;
             string answer;
-            double minimum = 0, maximum, guess;
+            double minimum = 0, maximum, guess, bankAccount;
 
-            while (done == false)
+            while (!done)
             {
                 Console.WriteLine("What do you want to access? \nP for prompter, B for banking, R for roller\n");
                 answer = Console.ReadLine().ToLower();
@@ -23,24 +23,15 @@ namespace Part_6___Loops
                 if (answer == "p")
                 {
                     Console.WriteLine("I'm gonna need a range \nGive me a minimum");
-                    while (parse == false)
-                    {
-                        if (double.TryParse(Console.ReadLine(), out minimum) == false)
-                        { Console.WriteLine("That's not what I'm looking for"); }
-                        else { parse = true; }
-                    }
+
+                    while (!double.TryParse(Console.ReadLine(), out minimum))
+                        Console.WriteLine("That's not what I'm looking for"); 
 
                     maximum = minimum - 1;
-                    parse = false;
                     Console.WriteLine("Now give me a maximum");
-                    while (parse == false || maximum < minimum)
-                    {
-                        if (double.TryParse(Console.ReadLine(), out maximum) == false)
-                        { Console.WriteLine("That's not what I'm looking for"); }
-                        else { parse = true; }
-                    }
+                    while (!double.TryParse(Console.ReadLine(), out maximum) || maximum <= minimum)
+                        Console.WriteLine("That's not what I'm looking for");
 
-                    parse = false;
                     Console.Clear();
                     Console.WriteLine($"Now I need a number between {minimum} and {maximum}");
 
@@ -64,6 +55,15 @@ namespace Part_6___Loops
                 }
 
                 else if (answer == "b")
+                {
+                    while (!bankDone)
+                    {
+                        bankAccount = 150;
+
+                        Console.WriteLine("Welcome to the BoB\n\nYou will be charged $0.75 for anything.");
+                        Console.WriteLine("D for deposit, W for withdrawal, P for payment, U for account update and Q to quit");
+                    }
+                }
             }
         }
     }
