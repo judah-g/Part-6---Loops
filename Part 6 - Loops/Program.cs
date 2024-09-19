@@ -193,13 +193,13 @@ namespace Part_6___Loops
                     Console.WriteLine("I'm not gonna stop rolling until I get doubles");
                     System.Threading.Thread.Sleep(400);
 
-                    while (die1 != die2)
+                    while (die1.Roll != die2.Roll)
                     {
                         die1.RollDie(); die2.RollDie(); die2.RollDie();
                         die1.DrawDie(); die2.DrawDie();
                         rolls++;
 
-                        if (die1 == die2)
+                        if (die1.Roll == die2.Roll)
                         {
                             Console.WriteLine($"I got it! It took me {rolls} rolls");
                         }
