@@ -24,7 +24,7 @@ namespace Part_6___Loops
 
             while (!done)
             {
-                Console.WriteLine("What do you want to access? \nP for prompter, B for banking, R for roller\n");
+                Console.WriteLine("What do you want to access? \nP for prompter, B for banking, R for roller, D to quit\n");
                 answer = Console.ReadLine().ToLower();
                 Console.Clear();
 
